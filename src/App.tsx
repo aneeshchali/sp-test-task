@@ -1,25 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter } from "react-router-dom";
+import RoutesConfig from "./RouteConfig";
+import "./App.css";
+import { AuthProvider } from "./context/AuthProvider";
+import { ProductProvider } from "./context/ProductProvider";
+import { Toaster } from "react-hot-toast";
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <AuthProvider>
+        <ProductProvider>
+          <RoutesConfig />
+        </ProductProvider>
+      </AuthProvider>
+      <Toaster
+        position="top-center"
+        toastOptions={{
+          className: "!bg-neutral-800 !text-white",
+          duration: 2000,
+        }}
+      />
+    </BrowserRouter>
   );
 }
 

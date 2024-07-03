@@ -1,0 +1,25 @@
+.productList {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(10rem, 1fr));
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 3rem 5rem;
+
+  @media (min-width: 496px) {
+    grid-template-columns: repeat(4, minmax(10rem, 1fr));
+    gap: 4rem;
+  }
+
+  @media (min-width: 1440px) {
+    grid-template-columns: repeat(5, minmax(20rem, 1fr));
+    gap: 4rem;
+  }
+}
+
+.mainWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
